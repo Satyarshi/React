@@ -13,11 +13,15 @@ function List() {
     const newListItems = [...listItems, { name: task, date: time }];
     setListItems(newListItems);
   };
+  const handleDelete = (name) => {
+    const updatedList = listItems.filter((item) => item.name !== name);
+    setListItems(updatedList);
+  };
   return (
     <center>
       <h1>TODO LIST</h1>
       <Item1 onClick={handleOnClick} />
-      <Items items={listItems} />
+      <Items items={listItems} onClick={handleDelete} />
     </center>
   );
 }

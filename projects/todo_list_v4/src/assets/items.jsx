@@ -2,7 +2,7 @@
 import PropTypes from "prop-types";
 import styles from "./Items.module.css";
 
-const Items = ({ items }) => {
+const Items = ({ items, onClick }) => {
   return (
     <div className="container text-center">
       {items.map((item) => (
@@ -10,7 +10,11 @@ const Items = ({ items }) => {
           <div className="col">{item.name}</div>
           <div className="col">{item.date}</div>
           <div className="col">
-            <button type="button" className="btn btn-danger">
+            <button
+              type="button"
+              className="btn btn-danger"
+              onClick={() => onClick(item.name)}
+            >
               Delete
             </button>
           </div>
