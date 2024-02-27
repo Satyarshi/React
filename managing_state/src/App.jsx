@@ -24,6 +24,13 @@ const App = () => {
       setlist_items(newitem);
     }
   }
+
+  /* instead of  let newitem = [...list_items, event.target.value];  
+                 setlist_items(newitem);
+  we should use functional update to avoid stale values during asynchronous updates 
+  
+  eg-> setlist_items((currValue) => {[...currValue,event.target.value]})  */
+
   return (
     <>
       <Container>
