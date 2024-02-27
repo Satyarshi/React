@@ -27,4 +27,13 @@ const Items = () => {
   );
 };
 
+Items.propTypes = {
+  items: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      date: PropTypes.string.isRequired,
+    })
+  ).isRequired,
+};
+
 export default Items;
