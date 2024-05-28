@@ -11,6 +11,8 @@ const postListReducer = (currentPostList, action) => {
     newPostList = currentPostList.filter(
       (post) => post.id !== action.payload.postId
     );
+  } else if (action.type === "ADD_ITEM") {
+    newPostList = [action.payload, ...currentPostList];
   }
   return newPostList;
 };
@@ -19,7 +21,12 @@ const PostListContent = ({ children }) => {
     postListReducer,
     defaultPostList
   );
-  const addPost = () => {};
+  const addPost = (title, body, reactions, user_id, tags) => {
+    dispatchPostList({
+      type: "ADD_ITEM",
+      payload: { id: Date.now(), title, body, reactions, user_id, tags },
+    });
+  };
   const deletePost = (postId) => {
     dispatchPostList({ type: "DELETE_ITEM", payload: { postId } });
   };
@@ -35,14 +42,16 @@ const defaultPostList = [
     id: "1",
     title: "Vacation",
     body: "After a long month of working , finally its time for a nice long vacation . What do you think which place is best ???",
-    reactions: "99",
+    reactions: "999+",
+    user_id: "satya",
     tags: ["Vacation", "Enjoy", "WanderLust"],
   },
   {
     id: "2",
     title: "Graduated",
     body: "After a 4 years of hardwork finally I am graduated with flying colors .",
-    reactions: "100",
+    reactions: "100+",
+    user_id: "satya",
     tags: ["Graduated", "B.Tech"],
   },
 ];

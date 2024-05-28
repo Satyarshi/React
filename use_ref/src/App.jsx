@@ -32,33 +32,4 @@ const App = () => {
   );
 };
 
-//  Here useRef is used to access DOM element directly
-
-// const App = () => {
-//   const [data, setData] = useState("");
-//   const refElement = useRef();
-//   function handleOnClick() {
-//     setData("");
-//     refElement.current.focus();
-//     refElement.current.style.color = "white";
-//   }
-//   function handleUpdate() {
-//     refElement.current.style.color = "red";
-//   }
-//   return (
-//     <div>
-//       <input
-//         ref={refElement}
-//         type="text"
-//         value={data}
-//         onChange={(e) => {
-//           setData(e.target.value);
-//         }}
-//       />
-//       <button onClick={handleOnClick}>Reset</button>
-//       <button onClick={handleUpdate}>Update Color</button>
-//     </div>
-//   );
-// };
-
 export default App;
